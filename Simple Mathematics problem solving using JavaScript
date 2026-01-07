@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title></title>
+</head>
+<body>
+<script>
+Need=prompt("Type the option a,b,c,d... according to your need #1.a- for Quadratic eqution solution #2.b- for Sum of A.P #3.c- for Sum of the Natural number divisible by k upto N #4.d- for total Natural number divisible by K upto N #5.e- for Factor of Natural number ")
+
+// Quadratic roots and factor
+
+if(Need=="a"){
+alert("For solution of quadratic equation ax^2+bx+c put value of a,b,c")
+let a=prompt("value of *a* in equation")
+let b=prompt("value of *b* in equation")
+let c=prompt("value of *c*in equation")
+let x=b*b-4*a*c
+if(x>=0){
+let x1=Math.sqrt(x)
+let root1=(-b+x1)/2*a
+let root2=(-b-x1)/2*a
+document.write(root1)
+document.write("<br>")
+document.write(root2)
+document.write("<br>")
+
+let Root1=0-root1
+let Root2=0-root2
+if(root1<0&&root2<0){
+document.write(`(X+${Root1})(X+${Root2})`)}
+if(root1>0&&root2>0)
+{document.write(`(X-${root1})(X-${root2})`)}
+if(root1>0&& root2<0)
+{document.write(`(X-${root1})(X+${Root2})`)}
+if(root1<0&& root2>0)
+{document.write(`(X+${Root1})(X-${root2})`)}
+if(root1<0&& root2==0)
+{document.write(`(X)(X+${Root1})`)}
+if(root1>0&& root2==0)
+{document.write(`(X)(X-${root1})`)}
+if(root1==0&& root2<0)
+{document.write(`(X)(X+${Root2})`)}
+if(root1==0&& root2>0)
+{document.write(`(X)(X-${root2})`)}
+else if(root1==0&& root2==0)
+{document.write("X²")}
+}
+
+if(x<0){
+let imgx=-x
+let imgx1=Math.sqrt(imgx)
+let imgroot1=-b/2*a
+let imgroot2=-b/2*a
+let non1=+imgx1/2*a
+let non2=-imgx1/2*a
+document.write(`${imgroot1}+${non1}i`)
+document.write("<br>")
+document.write(`${imgroot2} ${non2}i`)
+}
+}
+
+
+//if we don't want to decimal place we could also ise √ as same as we fo in case of iota i
+if(Need=="b"){
+let a1=prompt("type first term of ap")
+   let n=prompt("write total term in ap")
+   let d=prompt("common difference of ap")
+   let x1=2*a1
+   let x2=n-1
+   let x3=x2*d
+   let x4=x1+x3
+   let x5=n*x4
+   let x6=x5/2
+   document.write(x6)
+}
+
+//sum of natural number divisible by k upto N
+
+if(Need=="c"){
+let sum=0
+let divisibility=prompt("Divisible by")
+let upto=prompt("Upto Natural Number")
+for(Target=1; Target<=upto; Target++){
+if(Target%divisibility==0){sum=sum+1}
+}
+document.write(sum)
+}
+
+// Total number of Natural no. divisible by K upto N
+
+if(Need=="d"){
+let Total=0
+Divisibleby=prompt("Divisible By which Natural Number")
+Upto=prompt("Upto Which Natural Number")
+for(let counter=1; counter<=Upto; counter++)
+{if(counter%Divisibleby==0){Total=Total+1;
+}
+}
+document.write(Total)
+}
+
+//factor of natural number N whether it is perfect number or not
+if(Need=="e"){
+let Factor=0
+let Factorsum=0
+let Number= prompt("type the number whose factor you wanna get")
+for( let counter=1;counter<=Number; counter++){
+if(Number%counter==0){
+Factor=Factor+1;
+Factorsum=Factorsum+counter;
+document.write(counter)
+document.write(";")
+}
+}
+document.write("<br>");
+document.write(`Total Factor=${Factor}`);
+document.write("<br>")
+if(Factorsum==2*Number){
+document.write(`It is a perfect Number because sum of factor=2*Number => 2*${Number}=${Factorsum}`)}
+else{document.write("it is not a perfect number")}
+}
+
+
+</script>
+</body>
+</html>
